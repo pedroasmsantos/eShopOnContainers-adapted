@@ -15,7 +15,6 @@ namespace Microsoft.eShopOnContainers.Services.Identity.API.Data
     {
         public async Task SeedAsync(ConfigurationDbContext context,IConfiguration configuration)
         {
-           
             //callbacks urls from config:
             var clientUrls = new Dictionary<string, string>();
 
@@ -26,7 +25,6 @@ namespace Microsoft.eShopOnContainers.Services.Identity.API.Data
             clientUrls.Add("MarketingApi", configuration.GetValue<string>("MarketingApiClient"));
             clientUrls.Add("BasketApi", configuration.GetValue<string>("BasketApiClient"));
             clientUrls.Add("OrderingApi", configuration.GetValue<string>("OrderingApiClient"));
-            clientUrls.Add("MobileShoppingAgg", configuration.GetValue<string>("MobileShoppingAggClient"));
             clientUrls.Add("WebShoppingAgg", configuration.GetValue<string>("WebShoppingAggClient"));
             clientUrls.Add("WebhooksApi", configuration.GetValue<string>("WebhooksApiClient"));
             clientUrls.Add("WebhooksWeb", configuration.GetValue<string>("WebhooksWebClient"));
