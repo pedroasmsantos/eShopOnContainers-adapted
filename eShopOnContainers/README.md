@@ -2,10 +2,6 @@
    <img src="https://github.com/dotnet-architecture/eShopOnContainers/raw/dev/img/eshop_logo.png" alt="eShop logo" title="eShopOnContainers" align="right" height="60" />
 </a>
 
-# Event-driven Microservices Monitoring Solution
-
-This repository showcases a project developed under the scope of a master thesis on Software Engineering. It intends to present a solution for attaining visibility and control over the business processes that span across multiple microservices on an event-driven microservices ecosystem. For this purpose, the project eShopOnContainers will be used and modified as suitable for the solution.
-
 # .NET Microservices Sample Reference Application
 
 Sample .NET Core reference application, powered by Microsoft, based on a simplified microservices architecture and Docker containers.

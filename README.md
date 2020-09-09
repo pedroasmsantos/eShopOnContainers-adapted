@@ -1,2 +1,3 @@
-# event-driven-microservices-monitoring-solution
-This repository showcases a project developed under the scope of a master thesis on Software Engineering. It intends to present a solution for attaining visibility and control over the business processes that span across multiple microservices on an event-driven microservices ecosystem.
+# Event-driven Microservices Monitoring Solution
+
+This repository showcases a project developed under the scope of a master thesis on Software Engineering. It intends to present a solution for attaining visibility and control over the business processes that span across multiple microservices on an event-driven microservices ecosystem. For this purpose, the project eShopOnContainers will be used and modified as suitable for the solution.
