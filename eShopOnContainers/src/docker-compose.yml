@@ -26,7 +26,7 @@ services:
       - sqldata
 
   basket-api:
-    image: pedroasmsantos/basket.api:${PLATFORM:-linux}-${TAG:-latest}
+    image: ${REGISTRY:-eshop}/basket.api:${PLATFORM:-linux}-${TAG:-latest}
     build:
       context: .
       dockerfile: Services/Basket/Basket.API/Dockerfile
