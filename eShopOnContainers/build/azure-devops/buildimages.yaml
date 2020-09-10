@@ -37,7 +37,7 @@ jobs:
       dockerComposeCommand: 'build ${{ parameters.services }}'
       containerregistrytype: Container Registry
       dockerRegistryEndpoint: ${{ parameters.registryEndpoint }}
-      dockerComposeFile: docker-compose.yml
+      dockerComposeFile: ../docker-compose.yml
       qualifyImageNames: true
       projectName: ""
       dockerComposeFileArgs: |
