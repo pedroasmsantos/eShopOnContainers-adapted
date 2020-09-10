@@ -1,25 +1,13 @@
 # This script just copies app.yaml and inf.yaml files to all devspaces projects.
 # This is to workaround issue #56 - https://github.com/Azure/dev-spaces/issues/56
 
-Write-Host "Copying app.yaml and inf.yaml to Mobile.Bff.Marketing" -ForegroundColor Yellow
-Copy-Item "..\k8s\helm\app.yaml" -Destination ".\ApiGateways\Mobile.Bff.Marketing\apigw" -Force
-Copy-Item "..\k8s\helm\inf.yaml" -Destination ".\ApiGateways\Mobile.Bff.Marketing\apigw" -Force
-
 Write-Host "Copying app.yaml and inf.yaml to Web.Bff.Marketing" -ForegroundColor Yellow
 Copy-Item "..\k8s\helm\app.yaml" -Destination ".\ApiGateways\Web.Bff.Marketing\apigw" -Force
 Copy-Item "..\k8s\helm\inf.yaml" -Destination ".\ApiGateways\Web.Bff.Marketing\apigw" -Force
 
-Write-Host "Copying app.yaml and inf.yaml to Mobile.Bff.Shopping" -ForegroundColor Yellow
-Copy-Item "..\k8s\helm\app.yaml" -Destination ".\ApiGateways\Mobile.Bff.Shopping\apigw" -Force
-Copy-Item "..\k8s\helm\inf.yaml" -Destination ".\ApiGateways\Mobile.Bff.Shopping\apigw" -Force
-
 Write-Host "Copying app.yaml and inf.yaml to Web.Bff.Shopping" -ForegroundColor Yellow
 Copy-Item "..\k8s\helm\app.yaml" -Destination ".\ApiGateways\Web.Bff.Shopping\apigw" -Force
 Copy-Item "..\k8s\helm\inf.yaml" -Destination ".\ApiGateways\Web.Bff.Shopping\apigw" -Force
-
-Write-Host "Copying app.yaml and inf.yaml to Mobile.Bff Shopping Aggregator" -ForegroundColor Yellow
-Copy-Item "..\k8s\helm\app.yaml" -Destination ".\ApiGateways\Mobile.Bff.Shopping\aggregator" -Force
-Copy-Item "..\k8s\helm\inf.yaml" -Destination ".\ApiGateways\Mobile.Bff.Shopping\aggregator" -Force
 
 Write-Host "Copying app.yaml and inf.yaml to Web.Bff Shopping Aggregator" -ForegroundColor Yellow
 Copy-Item "..\k8s\helm\app.yaml" -Destination ".\ApiGateways\Web.Bff.Shopping\aggregator" -Force
