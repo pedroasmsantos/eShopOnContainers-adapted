@@ -23,5 +23,5 @@ steps:
     targetFolder: $(Build.ArtifactStagingDirectory)/eShopOnContainers/deploy/k8s/helm
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)/deploy/k8s/helm
+    pathtoPublish: $(Build.ArtifactStagingDirectory)/eShopOnContainers/deploy/k8s/helm
     artifactName: helm
