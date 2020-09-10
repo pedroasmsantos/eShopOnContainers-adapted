@@ -4,7 +4,6 @@ trigger:
   branches:
     include:
     - master
-    - dev
   paths:
     include:
     - src/ApiGateways/Web.Bff.Shopping/aggregator/*

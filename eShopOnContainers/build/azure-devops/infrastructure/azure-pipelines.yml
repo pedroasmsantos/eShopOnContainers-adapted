@@ -6,7 +6,6 @@ trigger:
   branches:
     include:
     - master
-    - dev
   paths:
     include:
     - build/azure-devops/buildimages.yml
