@@ -9,9 +9,8 @@ namespace Ordering.API.Application.Commands
 {
     public class CancelOrderCommand : IRequest<bool>
     {
-
         [DataMember]
-        public int OrderNumber { get; private set; }
+        public int OrderNumber { get; set; }
         public CancelOrderCommand()
         {
 
