@@ -42,7 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.AzureServiceBus" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.AzureStorage" Version="3.0.1" />
     <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.0.3" />
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.0.0" />
@@ -70,7 +69,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
-    <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBusServiceBus\EventBusServiceBus.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBus\EventBus.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\IntegrationEventLogEF\IntegrationEventLogEF.csproj" />
   </ItemGroup>
