@@ -1,4 +1,8 @@
-﻿using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Extensions;
@@ -6,12 +10,7 @@ using Microsoft.eShopOnContainers.Services.Ordering.API.Application.Commands;
 using Microsoft.eShopOnContainers.Services.Ordering.API.Application.Queries;
 using Microsoft.eShopOnContainers.Services.Ordering.API.Infrastructure.Services;
 using Microsoft.Extensions.Logging;
-using Ordering.API.Application.Behaviors;
 using Ordering.API.Application.Commands;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
 
 namespace Microsoft.eShopOnContainers.Services.Ordering.API.Controllers
 {
@@ -43,8 +42,8 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CancelOrderAsync([FromBody]CancelOrderCommand command, [FromHeader(Name = "x-requestid")] string requestId)
         {
-            bool commandResult = false;
-
+            var commandResult = false;
+            
             if (Guid.TryParse(requestId, out Guid guid) && guid != Guid.Empty)
             {
                 var requestCancelOrder = new IdentifiedCommand<CancelOrderCommand, bool>(command, guid);

@@ -20,7 +20,7 @@ namespace Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events
 
         [JsonProperty]
         public Guid Id { get; private set; }
-
+        
         [JsonProperty]
         public DateTime CreationDate { get; private set; }
     }

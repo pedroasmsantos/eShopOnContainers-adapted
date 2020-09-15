@@ -1,10 +1,10 @@
-﻿using Microsoft.eShopOnContainers.WebMVC.ViewModels;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.eShopOnContainers.WebMVC.ViewModels;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using WebMVC.Infrastructure;
 using WebMVC.Services.ModelDTOs;
 
@@ -12,20 +12,17 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
 {
     public class OrderingService : IOrderingService
     {
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         private readonly string _remoteServiceBaseUrl;
-        private readonly IOptions<AppSettings> _settings;
-
-
+        
         public OrderingService(HttpClient httpClient, IOptions<AppSettings> settings)
         {
             _httpClient = httpClient;
-            _settings = settings;
 
             _remoteServiceBaseUrl = $"{settings.Value.PurchaseUrl}/o/api/v1/orders";
         }
 
-        async public Task<Order> GetOrder(ApplicationUser user, string id)
+        public async Task<Order> GetOrder(ApplicationUser user, string id)
         {
             var uri = API.Order.GetOrder(_remoteServiceBaseUrl, id);
 
@@ -36,7 +33,7 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
             return response;
         }
 
-        async public Task<List<Order>> GetMyOrders(ApplicationUser user)
+        public async Task<List<Order>> GetMyOrders(ApplicationUser user)
         {
             var uri = API.Order.GetAllMyOrders(_remoteServiceBaseUrl);
 
@@ -47,11 +44,9 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
             return response;
         }
 
-
-
-        async public Task CancelOrder(string orderId)
+        public async Task CancelOrder(string orderId)
         {
-            var order = new OrderDTO()
+            var order = new OrderDTO
             {
                 OrderNumber = orderId
             };
@@ -69,9 +64,9 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
             response.EnsureSuccessStatusCode();
         }
 
-        async public Task ShipOrder(string orderId)
+        public async Task ShipOrder(string orderId)
         {
-            var order = new OrderDTO()
+            var order = new OrderDTO
             {
                 OrderNumber = orderId
             };
@@ -110,7 +105,6 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
             order.State = user.State;
             order.Country = user.Country;
             order.ZipCode = user.ZipCode;
-
             order.CardNumber = user.CardNumber;
             order.CardHolderName = user.CardHolderName;
             order.CardExpiration = new DateTime(int.Parse("20" + user.Expiration.Split('/')[1]), int.Parse(user.Expiration.Split('/')[0]), 1);
@@ -123,7 +117,7 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
         {
             order.CardExpirationApiFormat();
 
-            return new BasketDTO()
+            return new BasketDTO
             {
                 City = order.City,
                 Street = order.Street,

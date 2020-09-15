@@ -40,8 +40,6 @@ namespace Ordering.API.Application.IntegrationEvents.EventHandling
             {
                 _logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, Program.AppName, @event);
 
-                var result = false;
-
                 if (@event.RequestId != Guid.Empty)
                 {
                     using (LogContext.PushProperty("IdentifiedCommandId", @event.RequestId))
@@ -60,7 +58,7 @@ namespace Ordering.API.Application.IntegrationEvents.EventHandling
                             requestCreateOrder.Id,
                             requestCreateOrder);
 
-                        result = await _mediator.Send(requestCreateOrder);
+                        var result = await _mediator.Send(requestCreateOrder);
 
                         if (result)
                         {

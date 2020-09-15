@@ -37,7 +37,6 @@ namespace Ordering.API.Application.Commands
         }
     }
 
-
     // Use for Idempotency in Command process
     public class CancelOrderIdentifiedCommandHandler : IdentifiedCommandHandler<CancelOrderCommand, bool>
     {
