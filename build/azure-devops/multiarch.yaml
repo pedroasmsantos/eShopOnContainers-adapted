@@ -8,8 +8,7 @@ jobs:
 - job: manifest
   condition: and(succeeded(),ne('${{ variables['Build.Reason'] }}', 'PullRequest'))
   dependsOn:
-    # - BuildWindows
-    - BuildLinux  
+    - BuildLinux
   pool: 
     vmImage: 'Ubuntu 16.04'
   steps:
@@ -19,9 +18,6 @@ jobs:
       command: login
       containerregistrytype: 'Container Registry'
       dockerRegistryEndpoint: ${{ parameters.registryEndpoint }}
-      # Disabled windows deploy
-      # docker --config ~/.docker manifest create ${{ parameters.registry }}/${{ parameters.image }}:${{ parameters.branch }} ${{ parameters.registry }}/${{ parameters.image }}:linux-${{ parameters.branch }} ${{ parameters.registry }}/${{ parameters.image }}:win-${{ parameters.branch }}
-      # docker --config ~/.docker manifest create ${{ parameters.registry }}/${{ parameters.image }}:latest ${{ parameters.registry }}/${{ parameters.image }}:linux-latest ${{ parameters.registry }}/${{ parameters.image }}:win-latest
   - bash: |
       mkdir -p ~/.docker
       sed '$ s/.$//' $DOCKER_CONFIG/config.json > ~/.docker/config.json
