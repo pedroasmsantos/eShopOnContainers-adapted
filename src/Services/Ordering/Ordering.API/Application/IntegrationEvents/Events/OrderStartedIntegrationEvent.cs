@@ -13,7 +13,12 @@ namespace Ordering.API.Application.IntegrationEvents.Events
     {
         public string UserId { get; set; }
 
-        public OrderStartedIntegrationEvent(string userId)
-            => UserId = userId;
+        public int OrderId { get; }
+
+        public OrderStartedIntegrationEvent(string userId, int orderId)
+        {
+            UserId = userId;
+            OrderId = orderId;
+        }
     }
 }

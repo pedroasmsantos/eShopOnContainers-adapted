@@ -26,8 +26,6 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
 
         private string _description;
 
-
-
         // Draft orders have this set to true. Currently we don't check anywhere the draft status of an Order, but we could do it if needed
         private bool _isDraft;
 
@@ -36,6 +34,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
         // so OrderItems cannot be added from "outside the AggregateRoot" directly to the collection,
         // but only through the method OrderAggrergateRoot.AddOrderItem() which includes behaviour.
         private readonly List<OrderItem> _orderItems;
+
         public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
 
         private int? _paymentMethodId;
@@ -159,7 +158,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.O
             }
 
             _orderStatusId = OrderStatus.Cancelled.Id;
-            _description = $"The order was cancelled.";
+            _description = "The order was cancelled.";
             AddDomainEvent(new OrderCancelledDomainEvent(this));
         }
 

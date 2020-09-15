@@ -38,7 +38,6 @@ namespace Microsoft.eShopOnContainers.WebMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var user = _appUserParser.Parse(HttpContext.User);
                     var basket = _orderSvc.MapOrderToBasket(model);
 
                     await _basketSvc.Checkout(basket);

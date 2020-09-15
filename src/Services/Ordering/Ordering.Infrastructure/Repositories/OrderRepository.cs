@@ -29,7 +29,6 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.Infrastructure.Repositor
         public Order Add(Order order)
         {
             return  _context.Orders.Add(order).Entity;
-
         }
 
         public async Task<Order> GetAsync(int orderId)

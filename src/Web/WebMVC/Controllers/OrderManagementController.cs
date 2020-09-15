@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebMVC.Services.ModelDTOs;
 using Microsoft.eShopOnContainers.WebMVC.Services;
 using Microsoft.eShopOnContainers.WebMVC.ViewModels;
-using Microsoft.AspNetCore.Authorization;
+using WebMVC.Services.ModelDTOs;
 
 namespace WebMVC.Controllers
 {
     [Authorize(AuthenticationSchemes = "OpenIdConnect")]
     public class OrderManagementController : Controller
     {
-        private IOrderingService _orderSvc;
+        private readonly IOrderingService _orderSvc;
         private readonly IIdentityParser<ApplicationUser> _appUserParser;
+
         public OrderManagementController(IOrderingService orderSvc, IIdentityParser<ApplicationUser> appUserParser)
         {
             _appUserParser = appUserParser;

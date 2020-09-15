@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.eShopOnContainers.WebMVC.ViewModels.Annotations;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.eShopOnContainers.WebMVC.ViewModels.Annotations;
+using Newtonsoft.Json;
 using WebMVC.Services.ModelDTOs;
 
 namespace Microsoft.eShopOnContainers.WebMVC.ViewModels
@@ -63,7 +61,6 @@ namespace Microsoft.eShopOnContainers.WebMVC.ViewModels
 
         [Required]
         public Guid RequestId { get; set; }
-
 
         public void CardExpirationShortFormat()
         {
