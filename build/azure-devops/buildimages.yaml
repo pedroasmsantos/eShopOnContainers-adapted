@@ -34,7 +34,7 @@ jobs:
     inputs:
       command: test
       projects: '**/*UnitTests/*UnitTests.csproj'
-      arguments: '--configuration $(buildConfiguration)'
+      arguments: '--configuration release'
   - task: DockerCompose@0
     displayName: Compose push ${{ parameters.images }}
     inputs:
