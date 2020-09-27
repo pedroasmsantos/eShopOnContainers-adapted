@@ -29,6 +29,12 @@ jobs:
       projectName: ""
       dockerComposeFileArgs: |
         TAG=${{ variables['Build.SourceBranchName'] }}
+  - task: DotNetCoreCLI@2
+    displayName: Dotnet Test
+    inputs:
+      command: test
+      projects: '**/*UnitTests/*UnitTests.csproj'
+      arguments: '--configuration $(buildConfiguration)'
   - task: DockerCompose@0
     displayName: Compose push ${{ parameters.images }}
     inputs:

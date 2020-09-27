@@ -4,7 +4,7 @@ services:
 
   elasticsearch:
     build:
-      context: elk/elasticsearch/
+      context: ../deploy/elk/elasticsearch/
     volumes:
       - ./elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
@@ -15,7 +15,7 @@ services:
 
   logstash:
     build:
-      context: elk/logstash/
+      context: ../deploy/elk/logstash/
     volumes:
       - ./elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
@@ -28,7 +28,7 @@ services:
 
   kibana:
     build:
-      context: elk/kibana/
+      context: ../deploy/elk/kibana/
     volumes:
       - ./elk/kibana/config/:/usr/share/kibana/config:ro
     ports:
