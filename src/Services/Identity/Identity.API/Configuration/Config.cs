@@ -257,6 +257,20 @@ namespace Microsoft.eShopOnContainers.Services.Identity.API.Configuration
                 },
                 new Client
                 {
+                    ClientId = "workflowengine",
+                    ClientName = "Workflow Engine",
+                    ClientSecrets = new List<Secret>
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedScopes =
+                    {
+                        "orders"
+                    }
+                },
+                new Client
+                {
                     ClientId = "webshoppingaggswaggerui",
                     ClientName = "Web Shopping Aggregattor Swagger UI",
                     AllowedGrantTypes = GrantTypes.Implicit,

@@ -43,6 +43,15 @@ namespace Microsoft.eShopOnContainers.Services.Identity.API.Data
             // ref: https://github.com/dotnet-architecture/eShopOnContainers/issues/586
             else
             {
+                //foreach (var client in Config.GetClients(clientUrls))
+                //{
+                //    if (client.ClientId == "workflowengine")
+                //    {
+                //        context.Clients.Add(client.ToEntity());
+                //        await context.SaveChangesAsync();
+                //    }
+                //}
+
                 List<ClientRedirectUri> oldRedirects = (await context.Clients.Include(c => c.RedirectUris).ToListAsync())
                     .SelectMany(c => c.RedirectUris)
                     .Where(ru => ru.RedirectUri.EndsWith("/o2c.html"))
